@@ -5,15 +5,15 @@ import "math"
 type ListNode struct {
 	HubNode
 	unit *Unit
-	X    CoordinateVal
-	Z    CoordinateVal
+	PosX CoordinateVal
+	PosZ CoordinateVal
 }
 
 func newListNode(entAOINode *Unit, x CoordinateVal, z CoordinateVal) *ListNode {
 	eln := new(ListNode)
 	eln.unit = entAOINode
-	eln.X = x
-	eln.Z = z
+	eln.PosX = x
+	eln.PosZ = z
 	eln.HubNode.Category = UNIT
 	return eln
 }
@@ -59,14 +59,14 @@ func (l *ListNode) getEntityID() uint64 {
 }
 
 func (l *ListNode) removeMyself(oldZ CoordinateVal) {
-	l.Z = math.MaxFloat32
-	shuffleZ(l, l.X, oldZ)
+	l.PosZ = math.MaxFloat32
+	shuffleZ(l, l.PosX, oldZ)
 	l.removeFromRangeList()
 }
 
 func (l *ListNode) moveToPos(tgtX CoordinateVal, tgtZ CoordinateVal) {
-	oldX, oldZ := l.X, l.Z
-	l.X, l.Z = tgtX, tgtZ
+	oldX, oldZ := l.PosX, l.PosZ
+	l.PosX, l.PosZ = tgtX, tgtZ
 	shuffleXThenZ(l, oldX, oldZ)
 }
 
@@ -91,4 +91,12 @@ func (l *ListNode) removeFromRangeList() {
 	l.XNext = nil
 	l.ZPre = nil
 	l.ZNext = nil
+}
+
+func (l *ListNode) X() CoordinateVal {
+	return l.PosX
+}
+
+func (l ListNode) Z() CoordinateVal {
+	return l.PosZ
 }

@@ -204,7 +204,7 @@ func (s *Space) UnitsInRange(aoiUnit IUint, r CoordinateVal, includeThis bool) (
 	}
 
 	listNode := aoiNode.ListNode
-	centerPosX, centerPoxZ := listNode.X, listNode.Z
+	centerPosX, centerPoxZ := listNode.PosX, listNode.PosZ
 
 	res := []uint64{}
 	if includeThis {
@@ -259,7 +259,7 @@ func (s *Space) getUnitsInRange(retMap map[uint64]IUint, aoiUnit IUint, r Coordi
 	}
 
 	listNode := aoiNode.ListNode
-	centerPosX, centerPoxZ := listNode.X, listNode.Z
+	centerPosX, centerPoxZ := listNode.PosX, listNode.PosZ
 
 	if includeThis {
 		retMap[entID] = aoiUnit

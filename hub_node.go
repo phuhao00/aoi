@@ -10,13 +10,11 @@ type HubNode struct {
 }
 
 func (h *HubNode) X() CoordinateVal {
-	//TODO implement me
-	panic("implement me")
+	return h.owner.X()
 }
 
 func (h *HubNode) Z() CoordinateVal {
-	//TODO implement me
-	panic("implement me")
+	return h.owner.Z()
 }
 
 func (h *HubNode) moveToPrevX() {

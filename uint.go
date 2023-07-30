@@ -26,7 +26,7 @@ func (u *Unit) onEntityLeaveRange(entID uint64, rangeID CoordinateVal) {
 }
 
 func (u *Unit) removeMyself() {
-	oldZ := u.ListNode.Z
+	oldZ := u.ListNode.PosZ
 	u.ListNode.removeMyself(oldZ)
 }
 

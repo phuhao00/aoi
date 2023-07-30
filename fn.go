@@ -27,7 +27,7 @@ func shuffleX(thisNode INode, oldX CoordinateVal, oldZ CoordinateVal) {
 		if nextNode == nil {
 			break
 		}
-		nextPos := nextNode.(*ListNode).X
+		nextPos := nextNode.(*ListNode).PosX
 		if thisPos > nextPos {
 			thisNode.moveToNextX()
 		} else {
@@ -56,7 +56,7 @@ func shuffleZ(thisNode INode, oldX CoordinateVal, oldZ CoordinateVal) {
 		if nextNode == nil {
 			break
 		}
-		nextPos := nextNode.(*ListNode).Z
+		nextPos := nextNode.(*ListNode).PosZ
 		if thisPos > nextPos {
 			thisNode.moveToNextZ()
 		} else {
